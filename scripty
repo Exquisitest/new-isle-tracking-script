@@ -154,6 +154,19 @@ DeleteButton.TextSize = 10
 DeleteButton.TextColor3 = Color3.fromRGB(207, 151, 102)
 DeleteButton.FontFace.Weight = Enum.FontWeight.Bold
 
+local ReloadButton = Instance.new("TextButton")
+ReloadButton.Parent = HideButton
+ReloadButton.Name = "ReloadButton"
+ReloadButton.Position = UDim2.new(-0.271, 0,-0.636, 0)
+ReloadButton.Size = UDim2.new(0, 20,0, 20)
+ReloadButton.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+ReloadButton.BorderColor3 = Color3.fromRGB(152, 155, 79)
+ReloadButton.BorderSizePixel = 3
+ReloadButton.Text = "R"
+ReloadButton.TextSize = 10
+ReloadButton.TextColor3 = Color3.fromRGB(207, 151, 102)
+ReloadButton.FontFace.Weight = Enum.FontWeight.Bold
+
 
 -------------------------------
 
@@ -174,6 +187,12 @@ end)
 -- Delete UI
 DeleteButton.MouseButton1Click:Connect(function()
 ScreenGUI:Destroy()
+end)
+
+-- Reload UI
+ReloadButton.MouseButton1Click:Connect(function()
+	ScreenGUI:Destroy()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Exquisitest/new-isle-tracking-script/main/scripty'))()
 end)
 
 
