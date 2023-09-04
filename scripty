@@ -198,12 +198,20 @@ end)
 
 -------------------------------
 
+-- Manual console clearing
+local UIS = game:GetService('UserInputService')
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProccessedEvent)
+	if input.KeyCode == Enum.KeyCode.C then
+		UserFlags.Text = ""
+		print("Clearing console...")
+	end
+end)
 
 -- Function to clear UserFlags.Text
 local function clearUserFlagsText()
 	while true do
 		wait(4)
-		UserFlags.Text = ""
+		--UserFlags.Text = ""
 	end
 end
 
@@ -220,7 +228,7 @@ while true do
 	UserStats.Text = ""
 	for _, playercheck in ipairs(game.Players:GetChildren()) do
 		if playercheck.Name ~= game.Players.LocalPlayer.Name then
-			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 300 or playercheck.Character:WaitForChild("Humanoid").PlatformStand == true then
+			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 355 or playercheck.Character:WaitForChild("Humanoid").PlatformStand == true then
 				local CurrentText = UserFlags.Text
 				UserFlags.Text = CurrentText .. (playercheck.Name) .. "\n"
 				print((playercheck.Name) .. " has been flagged.")
