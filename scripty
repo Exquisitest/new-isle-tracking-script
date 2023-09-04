@@ -227,7 +227,7 @@ while true do
 	wait(0.5)
 	UserStats.Text = ""
 	for _, playercheck in ipairs(game.Players:GetChildren()) do
-		if playercheck.Name ~= game.Players.LocalPlayer.Name then
+		if playercheck.Name ~= game.Players.LocalPlayer.Name and playercheck.Character:WaitForChild("Humanoid").Health > 0 then
 			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 355 or playercheck.Character:WaitForChild("Humanoid").PlatformStand == true then
 				local CurrentText = UserFlags.Text
 				UserFlags.Text = CurrentText .. (playercheck.Name) .. "\n"
