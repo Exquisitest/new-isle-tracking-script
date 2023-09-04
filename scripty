@@ -1,1 +1,211 @@
-a
+-- Global variable setup
+MouseRef = game.Players.LocalPlayer:GetMouse()
+local GameState = game.Workspace:WaitForChild("GameState")
+
+-- Primary ScreenGUI setup
+local ScreenGUI = Instance.new("ScreenGui")
+ScreenGUI.Parent = game.Players.LocalPlayer.PlayerGui
+ScreenGUI.Name = "ScreenGui"
+
+
+-------------------------------
+-- Primary frame & visual setup
+local StatsFrame = Instance.new("Frame")
+StatsFrame.Parent = ScreenGUI
+StatsFrame.Name = "StatsFrame"
+StatsFrame.Position = UDim2.new(0.049, 0,0.049, 0)
+StatsFrame.Size = UDim2.new(0, 245,0, 368)
+StatsFrame.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+
+local Corner_TL = Instance.new("ImageLabel")
+Corner_TL.Parent = StatsFrame
+Corner_TL.Name = "Corner_TL"
+Corner_TL.Position = UDim2.new(-0.051, 0,-0.033, 0)
+Corner_TL.Size = UDim2.new(0, 100,0, 100)
+Corner_TL.BackgroundTransparency = 1
+Corner_TL.Image = "rbxassetid://14682903431"
+Corner_TL.Rotation = 90
+
+local Corner_TR = Instance.new("ImageLabel")
+Corner_TR.Parent = StatsFrame
+Corner_TR.Name = "Corner_TR"
+Corner_TR.Position = UDim2.new(0.638, 0,-0.033, 0)
+Corner_TR.Size = UDim2.new(0, 100,0, 100)
+Corner_TR.BackgroundTransparency = 1
+Corner_TR.Image = "rbxassetid://14682903431"
+Corner_TR.Rotation = 180
+
+local Corner_BL = Instance.new("ImageLabel")
+Corner_BL.Parent = StatsFrame
+Corner_BL.Name = "Corner_TR"
+Corner_BL.Position = UDim2.new(-0.051, 0,0.758, 0)
+Corner_BL.Size = UDim2.new(0, 100,0, 100)
+Corner_BL.BackgroundTransparency = 1
+Corner_BL.Image = "rbxassetid://14682903431"
+Corner_BL.Rotation = 0
+
+local Corner_BR = Instance.new("ImageLabel")
+Corner_BR.Parent = StatsFrame
+Corner_BR.Name = "Corner_TR"
+Corner_BR.Position = UDim2.new(0.638, 0,0.758, 0)
+Corner_BR.Size = UDim2.new(0, 100,0, 100)
+Corner_BR.BackgroundTransparency = 1
+Corner_BR.Image = "rbxassetid://14682903431"
+Corner_BR.Rotation = -90
+
+local StatsTitle = Instance.new("TextLabel")
+StatsTitle.Parent = StatsFrame
+StatsTitle.Name = "StatsTitle"
+StatsTitle.Position = UDim2.new(0, 0,0, 0)
+StatsTitle.Size = UDim2.new(0, 245,0, 50)
+StatsTitle.TextColor3 = Color3.fromRGB(207, 151, 102)
+StatsTitle.BackgroundTransparency = 1
+StatsTitle.FontFace.Weight = Enum.FontWeight.Bold
+StatsTitle.TextSize = 15
+StatsTitle.Text = "Player Stats"
+
+local UserStats = Instance.new("TextLabel")
+UserStats.Parent = StatsFrame
+UserStats.Name = "UserStats"
+UserStats.Position = UDim2.new(0, 0,0.135, 0)
+UserStats.Size = UDim2.new(0, 245,0, 318)
+UserStats.TextColor3 = Color3.fromRGB(150, 110, 74)
+UserStats.BackgroundTransparency = 1
+UserStats.TextYAlignment = "Top"
+UserStats.TextSize = 10
+UserStats.Text = ""
+-------------------------------
+
+
+-- Console frame & visual setup
+local ConsoleFrame = Instance.new("Frame")
+ConsoleFrame.Parent = StatsFrame
+ConsoleFrame.Name = "ConsoleFrame"
+ConsoleFrame.Position = UDim2.new(-0.004, 0,1.112, 0)
+ConsoleFrame.Size = UDim2.new(0, 245,0, 154)
+ConsoleFrame.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+
+local ConsoleCorner_TR = Instance.new("ImageLabel")
+ConsoleCorner_TR.Parent = ConsoleFrame
+ConsoleCorner_TR.Name = "Corner_TR"
+ConsoleCorner_TR.Position = UDim2.new(0.638, 0,-0.079, 0)
+ConsoleCorner_TR.Size = UDim2.new(0, 100,0, 100)
+ConsoleCorner_TR.BackgroundTransparency = 1
+ConsoleCorner_TR.Image = "rbxassetid://14682903431"
+ConsoleCorner_TR.Rotation = 180
+
+local ConsoleCorner_TL = Instance.new("ImageLabel")
+ConsoleCorner_TL.Parent = ConsoleFrame
+ConsoleCorner_TL.Name = "Corner_TL"
+ConsoleCorner_TL.Position = UDim2.new(-0.051, 0,-0.079, 0)
+ConsoleCorner_TL.Size = UDim2.new(0, 100,0, 100)
+ConsoleCorner_TL.BackgroundTransparency = 1
+ConsoleCorner_TL.Image = "rbxassetid://14682903431"
+ConsoleCorner_TL.Rotation = 90
+
+local ConsoleTitle = Instance.new("TextLabel")
+ConsoleTitle.Parent = ConsoleFrame
+ConsoleTitle.Name = "StatsTitle"
+ConsoleTitle.Position = UDim2.new(0, 0,0, 0)
+ConsoleTitle.Size = UDim2.new(0, 245,0, 50)
+ConsoleTitle.TextColor3 = Color3.fromRGB(207, 151, 102)
+ConsoleTitle.BackgroundTransparency = 1
+ConsoleTitle.FontFace.Weight = Enum.FontWeight.Bold
+ConsoleTitle.TextSize = 15
+ConsoleTitle.Text = "Console"
+
+local UserFlags = Instance.new("TextLabel")
+UserFlags.Parent = ConsoleFrame
+UserFlags.Name = "UserFlags"
+UserFlags.Position = UDim2.new(0, 0,0.259, 0)
+UserFlags.Size = UDim2.new(0, 245,0, 114)
+UserFlags.TextColor3 = Color3.fromRGB(150, 110, 74)
+UserFlags.BackgroundTransparency = 1
+UserFlags.TextYAlignment = "Top"
+UserFlags.TextSize = 10
+UserFlags.Text = ""
+-------------------------------
+
+
+-- Hide + delete UI button setup
+local HideButton = Instance.new("TextButton")
+HideButton.Parent = ScreenGUI
+HideButton.Name = "HideButton"
+HideButton.Position = UDim2.new(0.268, 0,0.231, 0)
+HideButton.Size = UDim2.new(0, 13,0, 60)
+HideButton.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+HideButton.BorderColor3 = Color3.fromRGB(152, 155, 79)
+HideButton.BorderSizePixel = 5
+HideButton.Text = ">"
+HideButton.TextSize = 10
+HideButton.TextColor3 = Color3.fromRGB(207, 151, 102)
+HideButton.FontFace.Weight = Enum.FontWeight.Bold
+
+local DeleteButton = Instance.new("TextButton")
+DeleteButton.Parent = HideButton
+DeleteButton.Name = "DeleteButton"
+DeleteButton.Position = UDim2.new(-0.271, 0,1.331, 0)
+DeleteButton.Size = UDim2.new(0, 20,0, 20)
+DeleteButton.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+DeleteButton.BorderColor3 = Color3.fromRGB(152, 155, 79)
+DeleteButton.BorderSizePixel = 3
+DeleteButton.Text = "X"
+DeleteButton.TextSize = 10
+DeleteButton.TextColor3 = Color3.fromRGB(207, 151, 102)
+DeleteButton.FontFace.Weight = Enum.FontWeight.Bold
+
+
+-------------------------------
+
+
+-- Hide UI
+HideButton.MouseButton1Click:Connect(function()
+	if StatsFrame.Visible == true then
+		StatsFrame.Visible = false
+		HideButton.Position = UDim2.new(0.05, 0,0.231, 0)
+		HideButton.Text = "<"
+	else
+		StatsFrame.Visible = true
+		HideButton.Position = UDim2.new(0.268, 0,0.231, 0)
+		HideButton.Text = ">"
+	end
+end)
+
+-- Delete UI
+DeleteButton.MouseButton1Click:Connect(function()
+ScreenGUI:Destroy()
+end)
+
+
+-------------------------------
+
+
+-- Function to clear UserFlags.Text
+local function clearUserFlagsText()
+	while true do
+		wait(4)
+		UserFlags.Text = ""
+	end
+end
+
+-- Start the coroutine to clear UserFlags.Text
+local clearUserFlagsCoroutine = coroutine.create(clearUserFlagsText)
+coroutine.resume(clearUserFlagsCoroutine)
+
+while true do
+	for _, player in ipairs(GameState.Statistics:GetChildren()) do
+		local CurrentText = UserStats.Text
+		UserStats.Text = UserStats.Text .. (player.Name) .. " - " .. (player["Players Killed"].Value) .. " kills" .. "\n"
+	end
+	wait(0.5)
+	UserStats.Text = ""
+	for _, playercheck in ipairs(game.Players:GetChildren()) do
+		if playercheck.Name ~= game.Players.LocalPlayer.Name then
+			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 200 or playercheck.Character:WaitForChild("Humanoid").PlatformStand == true then
+				local CurrentText = UserFlags.Text
+				UserFlags.Text = CurrentText .. (playercheck.Name) .. "\n"
+				print((playercheck.Name) .. " has been flagged.")
+			end
+		end
+	end
+end
