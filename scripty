@@ -166,7 +166,6 @@ ReloadButton.Text = "R"
 ReloadButton.TextSize = 10
 ReloadButton.TextColor3 = Color3.fromRGB(207, 151, 102)
 ReloadButton.FontFace.Weight = Enum.FontWeight.Bold
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Exquisitest/moab-loader/main/moab%20loader'))()
 
 -------------------------------
 
