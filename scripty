@@ -167,6 +167,7 @@ ReloadButton.TextSize = 10
 ReloadButton.TextColor3 = Color3.fromRGB(207, 151, 102)
 ReloadButton.FontFace.Weight = Enum.FontWeight.Bold
 
+
 -------------------------------
 
 
@@ -185,7 +186,7 @@ end)
 
 -- Delete UI
 DeleteButton.MouseButton1Click:Connect(function()
-	ScreenGUI:Destroy()
+ScreenGUI:Destroy()
 end)
 
 -- Reload UI
@@ -227,10 +228,10 @@ while true do
 	UserStats.Text = ""
 	for _, playercheck in ipairs(game.Players:GetChildren()) do
 		if playercheck.Name ~= game.Players.LocalPlayer.Name then
-			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 355 then
+			if playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name ~= "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 25 or playercheck.Character:WaitForChild("Humanoid").FloorMaterial.Name == "Air" and playercheck.Character:WaitForChild("HumanoidRootPart").Velocity.Magnitude >= 355 or playercheck.Character:WaitForChild("Humanoid").PlatformStand == true then
 				--local CurrentText = UserFlags.Text
 				--UserFlags.Text = CurrentText .. (playercheck.Name) .. "\n"
-				print("minor flag: " .. (playercheck.Name) .. " has been flagged.")
+				--print((playercheck.Name) .. " has been flagged.")
 			end
 		end
 	end
