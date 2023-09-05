@@ -166,7 +166,7 @@ ReloadButton.Text = "R"
 ReloadButton.TextSize = 10
 ReloadButton.TextColor3 = Color3.fromRGB(207, 151, 102)
 ReloadButton.FontFace.Weight = Enum.FontWeight.Bold
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Exquisitest/moab-loader/main/moab%20loader'))()
 
 -------------------------------
 
@@ -197,12 +197,6 @@ end)
 
 
 -------------------------------
-
-for _, playercheck in ipairs(game.Players:GetChildren()) do
-	if playercheck.Name ~= game.Players.LocalPlayer.Name then
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/Exquisitest/moabtracker/main/moab%20tracker'))()
-	end
-end
 
 -- Manual console clearing
 local UIS = game:GetService('UserInputService')
